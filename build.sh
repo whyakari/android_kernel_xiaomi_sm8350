@@ -67,3 +67,11 @@ cd ..
 rm -rf AnyKernel3
 echo -e "\nCompleted in $((SECONDS / 60)) minute(s) and $((SECONDS % 60)) second(s) !"
 echo "Zip: $ZIPNAME"
+
+if [ ! -f "./go-up" ]; then
+    echo -e "\nDownloading go-up..."
+    wget https://raw.githubusercontent.com/GustavoMends/go-up/master/go-up && chmod +x go-up
+fi
+
+echo -e "\nUploading with go-up..."
+./go-up "$ZIPNAME"
